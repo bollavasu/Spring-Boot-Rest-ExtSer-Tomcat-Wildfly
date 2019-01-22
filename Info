@@ -1,0 +1,46 @@
+
+https://www.programmergate.com/deploy-spring-boot-application-external-tomcat/    (External Tomcat)
+
+1)Change the packaging property to war in pom.xml
+  
+  <packaging>war</packaging>
+
+2)Add the following dependency to pom.xml in order to tell Spring Boot not to use its embedded Tomcat
+
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-tomcat</artifactId>
+    <scope>provided</scope>
+  </dependency>
+  
+3)define the starting class in pom.xml
+
+    <properties>
+	    <start-class>com.journaldev.spring.SpringBootRestApplication</start-class>
+		<java.version>8</java.version>
+	</properties>
+	
+4)modify @SpringBootApplication class as following
+
+	@SpringBootApplication
+	public class SpringBootRestApplication extends SpringBootServletInitializer {
+
+		public static void main(String[] args) {
+			SpringApplication.run(SpringBootRestApplication.class, args);
+		}
+		
+		@Override
+		protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+			return application.sources(SpringBootRestApplication.class);
+		}
+		
+	}
+	
+5)Now we can deploy our war file to any external server like Tomcat, Wildfly, Weblogic ...
+
+http://localhost:8080/WarFileName
+http://localhost:8080/WarFileName/person/get
+http://localhost:8080/WarFileName/person/get?name=Vasu
+
+http://localhost:8080/WarFileName/person/update    (POST)
+http://localhost:8080/WarFileName/person/update2   (POST, JSON)
