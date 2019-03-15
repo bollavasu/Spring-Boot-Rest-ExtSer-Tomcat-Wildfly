@@ -1,5 +1,5 @@
 
-https://www.programmergate.com/deploy-spring-boot-application-external-tomcat/    (External Tomcat)
+https://www.programmergate.com/deploy-spring-boot-application-external-tomcat/    (External Tomcat and Wildfly)
 
 1)Change the packaging property to war in pom.xml
   
