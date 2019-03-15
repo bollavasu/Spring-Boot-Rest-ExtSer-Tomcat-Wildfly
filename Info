@@ -36,7 +36,7 @@ https://www.programmergate.com/deploy-spring-boot-application-external-tomcat/  
 		
 	}
 	
-5)Now we can deploy our war file to any external server like Tomcat, Wildfly, Weblogic ...
+5)Now we can deploy our war file to any external server like Tomcat, Wildfly
 
 http://localhost:8080/WarFileName
 http://localhost:8080/WarFileName/person/get
@@ -44,3 +44,19 @@ http://localhost:8080/WarFileName/person/get?name=Vasu
 
 http://localhost:8080/WarFileName/person/update    (POST)
 http://localhost:8080/WarFileName/person/update2   (POST, JSON)
+
+Tomcat deployment
+1)copy the war file in to Tomcat webapps folder
+  C:\apache-tomcat-8.5.34\webapps
+2)start the Tomcat
+3)access the application
+  http://localhost:8080/Spring-Boot-REST-0.0.1-SNAPSHOT/
+  
+  
+Wildfly deployment
+1)copy the war file in to Wildfly deployments folder
+  C:\wildfly-15.0.0.Final\standalone\deployments
+2)start the Wildfly (double click on standalone.bat)
+  C:\wildfly-15.0.0.Final\bin\standalone
+3)access the application
+  http://localhost:8080/Spring-Boot-REST-0.0.1-SNAPSHOT/
